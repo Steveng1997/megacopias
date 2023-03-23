@@ -2,25 +2,25 @@
     <div class="container">
         <h2><strong>Galeria</strong></h2>
 
-        <div class="col-12 text-right">
-            <pagination-controls class="custom-pagination" (pageChange)="page = $event">
-                <a data-slide="prev"></a>
-                <a data-slide="next"></a>
-            </pagination-controls>
-        </div>
-
-
         <div class="col-12">
             <div class="row">
 
 
-                <div class="col-md-4 mb-3" data-aos="flip-up"
+                <div class="col-12 text-right">
+                    <pagination-controls class="custom-pagination" (pageChange)="page = $event">
+                        <a data-slide="prev"></a>
+                        <a data-slide="next"></a>
+                    </pagination-controls>
+                </div>
+
+                <div class="col-md-4 mb-3" z
                     *ngFor="let gallery of galeria | paginate: { itemsPerPage: 3, currentPage: page }">
                     <div class="card shadow-lg p-3 mb-5 bg-white rounded zoom">
                         <div class="card-header d-flex flex-column " style="height: 300px; width: 100%;">
                             <div (click)="openModal(editProfileModal)" class="img-wrap"
                                 style="height: 300px;width: 100%;"
                                 [ngStyle]="{'backgroundImage':'url('+gallery.imagen+')'}">
+
 
 
 
@@ -50,6 +50,8 @@
                                 </ng-template>
 
                                 <!-- Fin Modal -->
+
+
 
 
 
