@@ -1,7 +1,38 @@
 .card-body {
-    display: flex;
-  }
+  display: flex;
+  width: 70%;
+  margin-left: 15em;
+}
 
-  .card{
-    margin-left: 4em;
+.card {
+  margin-left: 4em;
+}
+
+
+/* 
+
+ ---------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------
+ Query para celular baja gama */
+@media only screen and (min-device-width: 350px) and (max-device-width: 410px) {
+  .card-body {
+    display: grid;
+    width: 20em;
+    margin-left: 0em;
+    margin-top: 7em;
   }
+}
+
+/* 
+ ---------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------
+ Query para celular media gama */
+@media only screen and (min-device-width: 411px) and (max-device-width: 450px) {}
+
+/* ---------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------
+ Query para pantalla grande como laptop o monitor */
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1500px) {}
+
+/* Pantalla mas grande */
+@media only screen and (min-device-width: 1700px) and (max-device-width: 2000px) {}

@@ -24,26 +24,34 @@
           No hay datos para mostrar
         </h5>
 
+        <div class="col-md-12 d-grid justify-content-center">
+          <h2> Home </h2>
+        </div>
+
+
+
         <!-- <div class="card border-0 shadow rounded-3 my-5"> -->
-        <div class="m-0 vh-100 row justify-content-center align-items-center">
-          <h1>{{hom.texto}}</h1>
-          
+        <div>
+          <div class="col-md-12 d-grid justify-content-center" style="margin-top: 9em">
+            <h1>{{hom.texto}}</h1>
+          </div>
+
+        </div>
 
 
-          <div class="row position-absolute" style="margin-top: 9em;">
-            <div class="col-md-6 d-grid justify-content-center" *ngIf="hom.length == 0">
-              <button (click)="agregar()" 
-              class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
-                Agregar
-              </button>
-            </div>
+        <div class="row" style="margin-top: 4em;">
+          <div class="col-md-6 d-grid justify-content-center">
+            <button (click)="agregar()" class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
+              Agregar
+            </button>
+          </div>
 
-            <div class="col-md-6 d-grid justify-content-center">
-              <button routerLink="/admin/editar-Home/{{ hom.id }}" class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12">
-                Editar
-              </button>
+          <div class="col-md-6 d-grid justify-content-center">
+            <button routerLink="/admin/editar-Home/{{ hom.id }}"
+              class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12">
+              Editar
+            </button>
 
-            </div>
           </div>
         </div>
       </div>

@@ -17,30 +17,35 @@
 
 <body>
   <div class="container txtosAcomodar">
-    <div class="row" >
-      <div class="col-sm-9 col-md-7 col-lg-8 mx-auto" *ngFor="let gallery of galeria">
+    <div class="row">
 
-        <div class="m-5">
-          <img src="{{ gallery.imagen }}" width="70%" />
+      <div class="col-md-12 d-grid justify-content-center">
+        <h2>Fotos</h2>
+      </div>
 
+      <div class="col-md-4 mb-3" *ngFor="let gallery of galeria | paginate: { itemsPerPage: 3, currentPage: page }">
 
-
-          <div class="row position-absolute" style="margin-top: 9em;">
-            <div class="col-md-6 d-grid justify-content-center">
-              <button (click)="agregar()" class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
-                Agregar
-              </button>
-            </div>
-
-            <div class="col-md-6 d-grid justify-content-center">
-              <button class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12">
-                Editar
-              </button>
-
-            </div>
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="img-wrap" style="height: 300px;width: 100%;"
+            [ngStyle]="{'backgroundImage':'url('+gallery.imagen+')'}">
           </div>
         </div>
       </div>
+
+
+      <div class="col-12 text-right">
+        <pagination-controls class="custom-pagination" (pageChange)="page = $event">
+          <a data-slide="prev"></a>
+          <a data-slide="next"></a>
+        </pagination-controls>
+      </div>
+
+      <div class="col-md-12 d-grid justify-content-center">
+        <button (click)="agregar()" class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
+          Agregar
+        </button>
+      </div>
+
     </div>
   </div>
 </body>

@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-
-import Swal from 'sweetalert2';
 import 'firebase/compat/app';
-// Model
-import { Home } from '../models/home';
 
 @Injectable()
 export class GaleriaService {
@@ -74,11 +70,33 @@ export class GaleriaService {
   // Get
   // -----------------------------------------------------------------------------------
 
-  getGallery() {
+  getGalleryByGrupos() {
     return this.db
-      .collection('gallery', (ref) => ref.orderBy('id', 'asc'))
+      .collection('gallery', (ref) => ref.where('selectFirst', '==', 'grupos'))
       .valueChanges();
   }
+
+  getGallery() {
+    return this.db
+      .collection('gallery', (ref) =>  ref.orderBy('id', 'asc'))
+      .valueChanges();
+  }
+
+  getBySelectGroup(selectGroup: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db
+        .collection('gallery', (ref) => ref.where('selectFirst', '==', 'fotos').where('selectGroup', '==', selectGroup))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
 
   // -----------------------------------------------------------------------------------
   // End Get

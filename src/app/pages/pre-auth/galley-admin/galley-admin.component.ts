@@ -11,6 +11,7 @@ import { GaleriaService } from 'src/app/core/services/galeria.service';
 export class GalleyAdminComponent implements OnInit {
 
   galeria: any[] = [];
+  public page!: number;
 
   constructor(
     public router: Router,
@@ -29,12 +30,12 @@ export class GalleyAdminComponent implements OnInit {
     });
   }
 
-  agregar(){
+  agregar() {
     this.router.navigate([`admin/galleryAdd`]);
   }
 
-  getGallety(){
-    
+  getGallety() {
+
   }
 
 }

@@ -1,10 +1,10 @@
 .txtosAcomodar {
-    display: grid;
-    width: 70%;
-    margin-left: 22%;
-  }
+  display: grid;
+  width: 70%;
+  margin-left: 22%;
+}
 
-  .noHayDatos {
-    margin-top: 30px;
-    width: 260%;
-  }
+.noHayDatos {
+  margin-top: 30px;
+  width: 260%;
+}

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Galeria } from 'src/app/core/models/galeria';
+
+// Service
 import { GaleriaService } from 'src/app/core/services/galeria.service';
-import * as Aos from 'aos';
 
 @Component({
   selector: 'app-gallery',
@@ -14,10 +17,14 @@ export class GalleryComponent implements OnInit {
   galeria: any[] = [];
   public page!: number;
 
+  galerias: Galeria[];
+  selectGroup: any;
+
   constructor(
     public router: Router,
     public formBuilder: FormBuilder,
-    public serviceGallery: GaleriaService
+    public serviceGallery: GaleriaService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -25,9 +32,24 @@ export class GalleryComponent implements OnInit {
   }
 
   getGallery() {
-    this.serviceGallery.getGallery().subscribe((dataGallery) => {
+    this.serviceGallery.getGalleryByGrupos().subscribe((dataGallery) => {
       this.galeria = dataGallery;
     });
   }
 
+  openModal(targetModal) {
+    this.selectGroup = targetModal.elementRef.nativeElement.parentElement.parentElement.parentElement.outerText
+    
+    console.log(this.selectGroup)
+
+    this.serviceGallery.getBySelectGroup(this.selectGroup).then((datoGroup) => {
+      this.galerias = datoGroup;
+      console.log(this.galerias)
+    });
+    
+    this.modalService.open(targetModal, {
+      centered: true,
+      backdrop: 'static',
+    });
+  }
 }

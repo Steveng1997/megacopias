@@ -20,7 +20,7 @@ li.active {
   position: relative;
 }
 
-/* 
+
 .links {
   opacity: 0;
   position: absolute;
@@ -28,7 +28,7 @@ li.active {
   left: 0;
   right: 0;
   text-align: center;
-} */
+}
 
 .custom-pagination ::ng-deep .ngx-pagination .disabled {
   contain: strict;
@@ -40,4 +40,52 @@ li.active {
 
 .custom-pagination ::ng-deep .pagination-previous {
   contain: strict;
+}
+
+
+
+
+
+/* ------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------ */
+/* Numbers for flecha */
+
+.custom-pagination ::ng-deep .current {
+  visibility: hidden;
+}
+
+/* .custom-pagination ::ng-deep .current ::ng-deep [aria-live="polite"] span {
+  visibility: hidden;
+} */
+
+.custom-pagination ::ng-deep .current ::ng-deep [aria-live="polite"] span:after {
+  visibility: visible;
+  content: '<-';
+  color: blue;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.custom-pagination ::ng-deep .current ::ng-deep [aria-live="polite"] span::before {
+  visibility: hidden;
+}
+
+.custom-pagination ::ng-deep a {
+  visibility: hidden;
+}
+
+.custom-pagination ::ng-deep a::after {
+  visibility: visible;
+  content: '->';
+  color: blue;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.zoom{
+  transition: transform .2s;
+}
+
+.zoom:hover{
+  transform: scale(1.1);
 }

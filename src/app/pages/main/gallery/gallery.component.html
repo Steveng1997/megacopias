@@ -1,48 +1,66 @@
-<section>
+<section class="seccion">
     <div class="container">
         <h2><strong>Galeria</strong></h2>
 
+        <div class="col-12 text-right">
+            <pagination-controls class="custom-pagination" (pageChange)="page = $event">
+                <a data-slide="prev"></a>
+                <a data-slide="next"></a>
+            </pagination-controls>
+        </div>
+
+
         <div class="col-12">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row" >
+            <div class="row">
 
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                              </ol>
 
-                            <div class="col-md-4 mb-3" data-aos="flip-up"
-                                *ngFor="let gallery of galeria | paginate: { itemsPerPage: 3, currentPage: page }">
-                                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-                                    <div class="card-header d-flex flex-column " style="height: 300px;width: 100%; ">
-                                        <div class="img-wrap" style="height: 300px;width: 100%;"
-                                            [ngStyle]="{'backgroundImage':'url('+gallery.imagen+')'}">
+                <div class="col-md-4 mb-3" data-aos="flip-up"
+                    *ngFor="let gallery of galeria | paginate: { itemsPerPage: 3, currentPage: page }">
+                    <div class="card shadow-lg p-3 mb-5 bg-white rounded zoom">
+                        <div class="card-header d-flex flex-column " style="height: 300px; width: 100%;">
+                            <div (click)="openModal(editProfileModal)" class="img-wrap"
+                                style="height: 300px;width: 100%;"
+                                [ngStyle]="{'backgroundImage':'url('+gallery.imagen+')'}">
+
+
+
+                                <!-- Modal -->
+                                <ng-template #editProfileModal let-modal>
+                                    <div class="modal-header" *ngFor="let gal of galerias">
+                                        <h5 class="modal-title" id="editProfileLabel">Listado de puntaje
+                                        </h5>
+
+                                        <img src="{{gal.imagen}}">
+                                        <button type="button" class="close" (click)="modal.dismiss()"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <!-- Aqui se coloca lo adentro -->
+
+                                        <div class="card-body text-center">
+                                            <div class="table-responsive">
+                                            </div>
                                         </div>
+
+                                        <!-- Afuera -->
                                     </div>
-                                    <div class="card-body">
-                                        <h3 class="card-title">{{gallery.selectGroup}}</h3>
-                                    </div>
-                                </div>
+                                </ng-template>
+
+                                <!-- Fin Modal -->
+
+
+
                             </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{gallery.selectGroup}}</h3>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-12 text-right">
-                <pagination-controls class="custom-pagination" (pageChange)="page = $event">
-                    <a data-slide="prev"></a>
-                    <a data-slide="next"></a>
-                </pagination-controls>
-            </div>
-
-
         </div>
-
-
-
     </div>
 </section>

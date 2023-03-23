@@ -34,6 +34,7 @@ import { AboutComponent } from './pages/main/about/about.component';
 import { HomeComponent } from './pages/main/home/home.component';
 import { GalleryComponent } from './pages/main/gallery/gallery.component';
 import { VideosComponent } from './pages/main/videos/videos.component';
+import { ContactanosComponent } from './pages/main/contactanos/contactanos.component';
 
 // Admin
 import { AdminComponent } from './pages/pre-auth/admin/admin.component';
@@ -50,11 +51,12 @@ import { AddgalleryComponent } from './pages/pre-auth/galley-admin/addgallery/ad
 // Services
 import { LoginService } from './core/services/login.service';
 import { HomeService } from './core/services/home.service';
+import { GaleriaService } from './core/services/galeria.service';
 
 // Cookies
 import { CookieService } from 'ngx-cookie-service';
 import { LoginGuardian } from './pages/pre-auth/login/login-guardian';
-import { GaleriaService } from './core/services/galeria.service';
+
 
 firebase.initializeApp({
   databaseURL: 'https://megacopias-ceea2-default-rtdb.firebaseio.com',
@@ -87,6 +89,7 @@ firebase.initializeApp({
     UpdateHomeComponent,
     GalleyAdminComponent,
     AddgalleryComponent,
+    ContactanosComponent,
   ],
   imports: [
     BrowserModule,
