@@ -1,8 +1,20 @@
+import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AppRoutingModule } from './app-routing.module';
+
+// Angular Material
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDividerModule } from '@angular/material/divider';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire/compat';
@@ -15,11 +27,34 @@ import { environment } from 'src/environments/environment';
 import firebase from 'firebase/compat/app';
 
 // Components
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AllComponent } from './pages/main/all/all.component';
+import { NavbarComponent } from './pages/main/navbar/navbar.component';
+import { FooterComponent } from './pages/main/footer/footer.component';
+import { AboutComponent } from './pages/main/about/about.component';
+import { HomeComponent } from './pages/main/home/home.component';
+import { GalleryComponent } from './pages/main/gallery/gallery.component';
+import { VideosComponent } from './pages/main/videos/videos.component';
+
+// Admin
+import { AdminComponent } from './pages/pre-auth/admin/admin.component';
+import { LoginComponent } from './pages/pre-auth/login/login.component';
+import { RegisLoginComponent } from './pages/pre-auth/users/regis-login/regis-login.component';
+import { UsersComponent } from './pages/pre-auth/users/users.component';
+import { UpdateUsersComponent } from './pages/pre-auth/users/update-users/update-users.component';
+import { HomeAdminComponent } from './pages/pre-auth/home-admin/home-admin.component';
+import { HomeAddAdminComponent } from './pages/pre-auth/home-admin/home-add-admin/home-add-admin.component';
+import { UpdateHomeComponent } from './pages/pre-auth/home-admin/update-home/update-home.component';
+import { GalleyAdminComponent } from './pages/pre-auth/galley-admin/galley-admin.component';
+import { AddgalleryComponent } from './pages/pre-auth/galley-admin/addgallery/addgallery.component';
+
+// Services
+import { LoginService } from './core/services/login.service';
+import { HomeService } from './core/services/home.service';
+
+// Cookies
+import { CookieService } from 'ngx-cookie-service';
+import { LoginGuardian } from './pages/pre-auth/login/login-guardian';
+import { GaleriaService } from './core/services/galeria.service';
 
 firebase.initializeApp({
   databaseURL: 'https://megacopias-ceea2-default-rtdb.firebaseio.com',
@@ -38,17 +73,49 @@ firebase.initializeApp({
     NavbarComponent,
     FooterComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    GalleryComponent,
+    VideosComponent,
+    AdminComponent,
+    LoginComponent,
+    AllComponent,
+    RegisLoginComponent,
+    UsersComponent,
+    HomeAdminComponent,
+    HomeAddAdminComponent,
+    UpdateUsersComponent,
+    UpdateHomeComponent,
+    GalleyAdminComponent,
+    AddgalleryComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule,
+    HttpClientModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
     BrowserAnimationsModule,
+    AngularFirestoreModule,
     NgbModule,
-    AngularFireModule.initializeApp(environment),
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatDividerModule,
+    NgxPaginationModule,
+    AngularFireModule.initializeApp(environment)
   ],
-  providers: [],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  bootstrap: [AppComponent]
+  providers: [
+    AngularFireAuth,
+    CookieService,
+    LoginGuardian,
+    LoginService,
+    GaleriaService,
+    HomeService
+  ],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

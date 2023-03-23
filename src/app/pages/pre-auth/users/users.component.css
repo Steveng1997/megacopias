@@ -1,0 +1,7 @@
+.card-body {
+    display: flex;
+  }
+
+  .card{
+    margin-left: 4em;
+  }

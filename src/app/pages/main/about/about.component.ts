@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, animate, transition, keyframes, query, stagger } from '@angular/animations';
 import * as Aos from 'aos';
+import Typed from 'typed.js';
 
 @Component({
   selector: 'app-about',
@@ -10,8 +10,21 @@ import * as Aos from 'aos';
 
 
 export class AboutComponent implements OnInit {
+
   constructor() { }
-  ngOnInit(): void { 
+
+  ngOnInit(): void {
+
+    var options3 = {
+      strings: ['', 'PROPÓSITOS'],
+      typeSpeed: 120,
+      backSpeed: 100,
+      loop: true,
+    };
+
+    var typed3 = new Typed('.typed3', options3);
+    typed3.reset(true)
+
     Aos.init();
   }
 }
