@@ -32,6 +32,7 @@ export class GaleriaService {
       selectFirst: formGallery.selectFirst,
       imagen: formGallery.imagen,
       selectGroup: formGallery.selectGroup,
+      nombre: formGallery.nombre,
       descripcion: formGallery.descripcion,
       precio: formGallery.precio
     };

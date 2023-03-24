@@ -3,6 +3,7 @@ export class Galeria {
   selectFirst?: string;
   imagen?: string;
   selectGroup?: string;
+  nombre?: string;
   descripcion?: string;
   precio?: number;
   idDocument?: string;

@@ -30,16 +30,7 @@ export class HomeComponent implements OnInit {
       loop: true,
     };
 
-    var options2 = {
-      strings: ['', 'Bienvenidos'],
-      typeSpeed: 200,
-      backSpeed: 100,
-      loop: false,
-    };
-
     var typed = new Typed('.typed', options);
-    var typed2 = new Typed('.typed2', options2);
     typed.reset(true)
-    typed2.reset(true)
   }
 }

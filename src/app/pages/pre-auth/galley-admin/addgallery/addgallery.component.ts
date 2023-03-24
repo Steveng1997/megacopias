@@ -25,6 +25,7 @@ export class AddgalleryComponent implements OnInit {
     selectFirst: new FormControl(''),
     imagen: new FormControl(''),
     selectGroup: new FormControl(''),
+    nombre: new FormControl(''),
     descripcion: new FormControl(''),
     precio: new FormControl(''),
 

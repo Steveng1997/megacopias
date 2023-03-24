@@ -2,3 +2,11 @@
 display: grid;
 justify-content: center;
 }
+
+.ajustButton{
+    display: contents;
+}
+
+.description{
+    width: 20em;
+}

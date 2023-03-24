@@ -39,17 +39,18 @@ export class GalleryComponent implements OnInit {
 
   openModal(targetModal) {
     this.selectGroup = targetModal.elementRef.nativeElement.parentElement.parentElement.parentElement.outerText
-    
-    console.log(this.selectGroup)
 
     this.serviceGallery.getBySelectGroup(this.selectGroup).then((datoGroup) => {
       this.galerias = datoGroup;
-      console.log(this.galerias)
     });
     
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
     });
+  }
+
+  compra(e){
+    console.log(e);
   }
 }
