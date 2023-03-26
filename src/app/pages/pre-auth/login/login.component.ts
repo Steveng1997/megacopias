@@ -32,12 +32,11 @@ export class LoginComponent implements OnInit {
     if (this.email != '') {
       if (this.password != '') {
         this.serviceLogin.getEmailYPassword(this.email, this.password).then((resp => {
-          this.serviceLogin
-            .emailExistAndPassword(this.email, this.password)
-            .then((dataCategoria) => {
-              this.usuarios = dataCategoria;
-              this.router.navigate([`admin`]);
-            })
+          this.serviceLogin.existEmail(resp.user.email).then((dataCategoria) => {
+            this.usuarios = dataCategoria;
+            this.serviceLogin.updatePassword(dataCategoria[0]['idDocument'], dataCategoria[0]['id'], this.password)
+            this.router.navigate([`admin`]);
+          })
         })).catch((err) => {
           if (err.code == AuthErrorCodes.INVALID_PASSWORD || err.code == AuthErrorCodes.TOO_MANY_ATTEMPTS_TRY_LATER) {
             this.restorePassword();

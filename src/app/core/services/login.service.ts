@@ -114,6 +114,21 @@ export class LoginService {
     });
   }
 
+  existEmail(email: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('usuarios', (ref) => ref.where('email', '==', email))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            _reject(rp);
+          }
+        });
+    });
+  }
+
   getUsuariosByDocument(id: any): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -170,6 +185,13 @@ export class LoginService {
           });
         });
     })
+  }
+
+  updatePassword(idDocument: string, id: string, password: string) {
+    return this.db
+      .collection('usuarios', (ref) => ref.where('id', '==', id))
+      .doc(idDocument)
+      .update({ password: password });
   }
 
 

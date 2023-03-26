@@ -11,55 +11,32 @@
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <style href="login.component.css"></style>
+  <style href="regis-login.component.css"></style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
-        <!-- <div class="card border-0 shadow rounded-3 my-5"> -->
-        <div class="m-0 vh-100 row justify-content-center align-items-center">
-          <div class="card-body p-4 p-sm-7">
-            <div class="card-title text-center mb-3 fw-bolder display-5">
-              <label class="text-danger">REGISTRO</label>
-            </div>
-
-            <form #formLogin="ngForm" (submit)="onAddUser()">
-              <div class="row justify-content-center">
-                <div class="form-floating mb-3 col-6">
-                  <input class="form-control" [(ngModel)]="email" type="email" id="email" name="email"
-                    placeholder="Email" />
-                  <label for="usuario">Email</label>
-                </div>
-              </div>
-              <div class="row justify-content-center">
-                <div class="form-floating mb-3 col-6">
-                  <input class="form-control" [(ngModel)]="password" type="password" id="password" name="password"
-                    placeholder="Contraseña" />
-                  <label for="contrasena">Contraseña</label>
-                </div>
-              </div>
-
-              <div class="row position-absolute fixed-bottom mb-2">
-                <div class="col-md-6 d-grid justify-content-center">
-                  <button type="submit" class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
-                    Aceptar
-                  </button>
-                </div>
-
-                <div class="col-md-6 d-grid justify-content-center">
-                  <button (click)="devolver()"
-                    class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12">
-                    Devolver
-                  </button>
-
-                </div>
-              </div>
-            </form>
-          </div>
+  <div class="center">
+    <div class="container">
+      <label class="close-btn fas fa-times"></label>
+      <div class="text"> Registrate </div>
+      <form #formLogin="ngForm" (submit)="onAddUser()">
+        <div class="data">
+          <label>Email</label>
+          <input [(ngModel)]="email" type="email" id="email" name="email" required>
         </div>
-      </div>
+        <div class="data">
+          <label>Contraseña</label>
+          <input [(ngModel)]="password" type="password" id="password" name="password" required>
+        </div>
+        <div class="btn">
+          <div class="inner"></div>
+          <button type="submit">Aceptar</button>
+        </div>
+        <div class="btn2">
+          <div class="inner2"></div>
+          <button (click)="devolver()">Regresar</button>
+        </div>
+      </form>
     </div>
   </div>
 </body>

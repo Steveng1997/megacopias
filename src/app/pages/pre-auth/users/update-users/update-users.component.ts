@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthErrorCodes } from '@firebase/auth';
 //importamos el servicio
 import { LoginService } from 'src/app/core/services/login.service';
 //importamos los modulos para formularios
@@ -8,7 +10,6 @@ import { FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 // Model
 import { Usuario } from 'src/app/core/models/login';
-
 
 @Component({
   selector: 'app-update-users',
@@ -25,6 +26,7 @@ export class UpdateUsersComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     public serviceLogin: LoginService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -35,27 +37,48 @@ export class UpdateUsersComponent implements OnInit {
     });
   }
 
-  onUpdateUser(idDocument, idEstudiante, usu: Usuario){
-    const id = this.activeRoute.snapshot.paramMap.get('id');
+  restorePassword() {
+    this.serviceLogin.resetPassword(this.usua[0]['email'])
+    this.modalService.dismissAll();
+  }
 
+  onUpdateUser(idDocument, idEstudiante, usu: Usuario) {
+    const id = this.activeRoute.snapshot.paramMap.get('id');
     if (usu.email != "" || usu.email != null) {
-      this.serviceLogin.updateUsuarios(idDocument, idEstudiante, usu).then((resp => {
-        if (resp = true) {
-          this.serviceLogin.getByEmail(usu.email).then((dataCategoria) => {
-            this.usua = dataCategoria;
-            if (this.usua) {
-              this.router.navigate([`admin/${this.idUser}/usuarios/${this.idUser}`]);
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: '¡Editado Correctamente!',
-                showConfirmButton: false,
-                timer: 2500,
-              });
-            }
+      this.serviceLogin.getEmailYPassword(usu.email, usu.password).then((resp => {
+        console.log(resp)
+        if (resp.user.email != '') {
+          this.serviceLogin.existEmail(resp.user.email).then((dataCategoria => {
+            this.router.navigate([`admin/usuarios`]);
+          })).catch((rp) => {
+            this.serviceLogin.updateUsuarios(idDocument, idEstudiante, usu).then((resp => {
+              if (resp = true) {
+                this.serviceLogin.getByEmail(usu.email).then((dataCategoria) => {
+                  this.usua = dataCategoria;
+                  if (this.usua) {
+                    this.restorePassword();
+                    this.router.navigate([`admin/usuarios`]);
+                    Swal.fire({
+                      position: 'top-end',
+                      icon: 'success',
+                      title: '¡Editado Correctamente!',
+                      text: 'Revise su correo para completar.',
+                      showConfirmButton: false,
+                      timer: 2500,
+                    });
+                  }
+                })
+              };
+            }))
           })
-        };
-      }))
+        }
+      })).catch((err) => {
+        if (err.code == AuthErrorCodes.USER_DELETED) {
+          console.log("HOLAA")
+        }
+      })
+
+
     } else {
       Swal.fire({
         icon: 'error',
@@ -64,7 +87,7 @@ export class UpdateUsersComponent implements OnInit {
     }
   }
 
-  devolver(){
+  devolver() {
     this.router.navigate([`admin/usuarios`]);
   }
 }
