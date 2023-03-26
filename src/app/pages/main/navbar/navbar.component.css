@@ -2,7 +2,7 @@
   position: static;
 }
 
-.navbar{
+.navbar {
   background: linear-gradient(90deg, rgb(255, 255, 255), rgb(3, 59, 244));
 }
 
@@ -20,7 +20,7 @@
 *
 */
 
-.APP  {
+.APP {
   background: #eaafc8;
   background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);
   background: linear-gradient(to right, #eaafc8, #654ea3);
@@ -36,4 +36,27 @@ code {
 
 .text-uppercase {
   letter-spacing: 0.08em;
+}
+
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
+  .btnBuy{
+    display: grid;
+    position: inherit;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+  .btnBuy{
+    display: grid;
+    position: inherit;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-device-width: 1700px) and (max-device-width: 2000px) {
+  .btnBuy{
+    display: grid;
+    position: inherit;
+  }
 }

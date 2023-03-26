@@ -1,3 +1,5 @@
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <section class="seccion">
     <div class="container">
         <h2><strong>Galeria</strong></h2>
@@ -7,13 +9,13 @@
 
 
                 <div class="col-12 text-right">
-                    <pagination-controls class="custom-pagination" (pageChange)="page = $event">
+                    <pagination-controls (pageChange)="page = $event">
                         <a data-slide="prev"></a>
                         <a data-slide="next"></a>
                     </pagination-controls>
                 </div>
 
-                <div class="col-md-4 mb-3" z
+                <div class="col-md-4 mb-3"
                     *ngFor="let gallery of galeria | paginate: { itemsPerPage: 3, currentPage: page }">
                     <div class="card shadow-lg p-3 mb-5 bg-white rounded zoom">
                         <div class="card-header d-flex flex-column " style="height: 300px; width: 100%;">
@@ -25,9 +27,7 @@
 
 
                                 <!-- Modal -->
-                                <ng-template #editProfileModal let-modal>
-
-
+                                <ng-template class="custom-modal" #editProfileModal let-modal>
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="editProfileLabel">Listado de puntaje
                                         </h5>
@@ -38,13 +38,10 @@
                                         </button>
                                     </div>
 
-                                    <div class="modal-body" *ngFor="let gal of galerias">
+                                    <div class="modal-body">
                                         <!-- Aqui se coloca lo adentro -->
 
-                                        <div class="card-body text-center">
-                                            <!-- 
 
-                                            <img src="{{gal.imagen}}"> -->
 
 
 
@@ -75,59 +72,31 @@
 
 
 
+                                        <div class="row">
+                                            <div class="col-12 text-right">
 
+                                                <pagination-controls (pageChange)="pageModal = $event">
+                                                    <a data-slide="prev"></a>
+                                                    <a data-slide="next"></a>
+                                                </pagination-controls>
+                                            </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                            <div class="wp-block-columns has-3-columns">
+                                            <div class="col-md-6 mb-3"
+                                                *ngFor="let gale of galerias | paginate: { itemsPerPage: 2, currentPage: pageModal }">
                                                 <div class="wp-block-column">
-                                                    <div style="border:1px solid #f5f5f5;padding-top:15px;padding-right:15px;padding-bottom:0px;padding-left:15px;border-radius:12px;background-color:rgba(255, 255, 255, 1);box-shadow:1px 1px 16px #efefef"
-                                                        id="wp-blocks-design-id-d0780ad9"
+                                                    <div style="border:1px solid #f5f5f5;padding-top:15px;padding-right:0px;padding-bottom:0px;padding-left:15px;border-radius:12px;background-color:rgb(255, 255, 255);box-shadow:0px 0px 8px #343434"
+                                                        id="wp-blocks-design-id-4166924d"
                                                         class="wp-block-design-dynamic-block">
                                                         <style>
-                                                            #wp-blocks-design-id-d0780ad9:hover {
-                                                                border: 1px solid #f2f2f2 !important;
+                                                            #wp-blocks-design-id-4166924d:hover {
+                                                                border: 1px solid #f5f5f5 !important;
                                                                 padding-top: 15px !important;
-                                                                padding-right: 15px !important;
+                                                                padding-right: 0px !important;
                                                                 padding-bottom: 0px !important;
                                                                 padding-left: 15px !important;
                                                                 border-radius: 12px !important;
                                                                 background-color: rgba(255, 255, 255, 1) !important;
-                                                                box-shadow: 1px 1px 16px #f6e4e2 !important;
+                                                                box-shadow: 0px 0px 8px #c40b0b !important;
                                                             }
                                                         </style>
                                                         <div class="wp-block-columns has-2-columns">
@@ -138,13 +107,14 @@
 
 
                                                                 <p class="has-text-align-right has-very-dark-gray-color has-text-color has-custom-font"
-                                                                    style="font-size:23px;font-family:Fira Sans">BEAST
-                                                                    PRO</p>
+                                                                    style="font-size:23px;font-family:Fira Sans">
+                                                                    {{gale.nombre}}</p>
 
 
 
                                                                 <p class="has-text-align-right has-vivid-red-color has-text-color has-custom-font"
-                                                                    style="font-size:23px;font-family:Fira Sans">$198.99
+                                                                    style="font-size:23px;font-family:Fira Sans">
+                                                                    ${{gale.precio}}
                                                                 </p>
 
 
@@ -152,7 +122,8 @@
                                                                 <div class="wp-block-button alignright is-style-btn-rounded has-custom-size has-custom-font has-custom-weight"
                                                                     style="font-family:Fira Sans;font-weight:400;font-size:15px">
                                                                     <a class="wp-block-button__link has-vivid-white-color has-pale-pink-background-color has-text-color has-background"
-                                                                        href="#">See Offer</a></div>
+                                                                        (click)="guardarInfo(gale)">See Offer</a>
+                                                                </div>
                                                             </div>
 
 
@@ -164,136 +135,9 @@
 
 
                                                                 <figure class="wp-block-image"><img
-                                                                        src="http://demo.aa-team.com/tf/kingdomWooZone/kingdomberg/wp-content/uploads/2019/07/Rose-Gold-Headphone-PNG-Image-Background.png"
-                                                                        alt=""></figure>
+                                                                        src="{{gale.imagen}}"></figure>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-
-
-
-                                                <div class="wp-block-column">
-                                                    <div style="border:1px solid #f5f5f5;padding-top:15px;padding-right:15px;padding-bottom:0px;padding-left:15px;border-radius:12px;background-color:rgba(255, 255, 255, 1);box-shadow:1px 1px 16px #efefef"
-                                                        id="wp-blocks-design-id-4d1c76c8"
-                                                        class="wp-block-design-dynamic-block">
-                                                        <style>
-                                                            #wp-blocks-design-id-4d1c76c8:hover {
-                                                                border: 1px solid #f2f2f2 !important;
-                                                                padding-top: 15px !important;
-                                                                padding-right: 15px !important;
-                                                                padding-bottom: 0px !important;
-                                                                padding-left: 15px !important;
-                                                                border-radius: 12px !important;
-                                                                background-color: rgba(255, 255, 255, 1) !important;
-                                                                box-shadow: 1px 1px 16px #f6e4e2 !important;
-                                                            }
-                                                        </style>
-                                                        <div class="wp-block-columns has-2-columns">
-                                                            <div class="wp-block-column">
-                                                                <div style="height:20px" aria-hidden="true"
-                                                                    class="wp-block-spacer"></div>
-
-
-
-                                                                <p class="has-text-align-right has-very-dark-gray-color has-text-color has-custom-font"
-                                                                    style="font-size:23px;font-family:Fira Sans">BEAST
-                                                                    PRO</p>
-
-
-
-                                                                <p class="has-text-align-right has-vivid-red-color has-text-color has-custom-font"
-                                                                    style="font-size:23px;font-family:Fira Sans">$198.99
-                                                                </p>
-
-
-
-                                                                <div class="wp-block-button alignright is-style-btn-rounded-outline has-custom-size has-custom-font has-custom-weight"
-                                                                    style="font-family:Fira Sans;font-weight:400;font-size:15px">
-                                                                    <a class="wp-block-button__link has-vivid-red-color has-vivid-white-background-color has-text-color has-background"
-                                                                        href="#">Shop Now</a></div>
-                                                            </div>
-
-
-
-                                                            <div class="wp-block-column">
-                                                                <div style="height:40px" aria-hidden="true"
-                                                                    class="wp-block-spacer"></div>
-
-
-
-                                                                <figure class="wp-block-image"><img
-                                                                        src="http://demo.aa-team.com/tf/kingdomWooZone/kingdomberg/wp-content/uploads/2019/07/kisspng-iphone-5s-apple-watch-series-3-apple-pay-apple-watch-5a70cf1e5187e8.584021141517342494334.png"
-                                                                        alt=""></figure>
-                                                            </div>
-                                                        </div>
-
-
-
-                                                        <p></p>
-                                                    </div>
-                                                </div>
-
-
-
-                                                <div class="wp-block-column">
-                                                    <div style="border:1px solid #f5f5f5;padding-top:15px;padding-right:15px;padding-bottom:0px;padding-left:15px;border-radius:12px;background-color:rgba(255, 255, 255, 1);box-shadow:1px 1px 16px #efefef"
-                                                        id="wp-blocks-design-id-41780c10"
-                                                        class="wp-block-design-dynamic-block">
-                                                        <style>
-                                                            #wp-blocks-design-id-41780c10:hover {
-                                                                border: 1px solid #f2f2f2 !important;
-                                                                padding-top: 15px !important;
-                                                                padding-right: 15px !important;
-                                                                padding-bottom: 0px !important;
-                                                                padding-left: 15px !important;
-                                                                border-radius: 12px !important;
-                                                                background-color: rgba(255, 255, 255, 1) !important;
-                                                                box-shadow: 1px 1px 16px #f6e4e2 !important;
-                                                            }
-                                                        </style>
-                                                        <div class="wp-block-columns has-2-columns">
-                                                            <div class="wp-block-column">
-                                                                <div style="height:20px" aria-hidden="true"
-                                                                    class="wp-block-spacer"></div>
-
-
-
-                                                                <p class="has-text-align-right has-very-dark-gray-color has-text-color has-custom-font"
-                                                                    style="font-size:23px;font-family:Fira Sans">BEAST
-                                                                    PRO</p>
-
-
-
-                                                                <p class="has-text-align-right has-vivid-red-color has-text-color has-custom-font"
-                                                                    style="font-size:23px;font-family:Fira Sans">$198.99
-                                                                </p>
-
-
-
-                                                                <div class="wp-block-button alignright is-style-btn-rounded has-custom-size has-custom-font has-custom-weight"
-                                                                    style="font-family:Fira Sans;font-weight:400;font-size:15px">
-                                                                    <a class="wp-block-button__link has-vivid-white-color has-pale-pink-background-color has-text-color has-background"
-                                                                        href="#">Shop Now</a></div>
-                                                            </div>
-
-
-
-                                                            <div class="wp-block-column">
-                                                                <div style="height:40px" aria-hidden="true"
-                                                                    class="wp-block-spacer"></div>
-
-
-
-                                                                <figure class="wp-block-image"><img
-                                                                        src="http://demo.aa-team.com/tf/kingdomWooZone/kingdomberg/wp-content/uploads/2019/07/kisspng-apple-watch-series-3-apple-watch-series-2-apple-wa-5adfc3ace8df56.9007881015246140609539.png"
-                                                                        alt=""></figure>
-                                                            </div>
-                                                        </div>
-
-
-
-                                                        <p></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -302,31 +146,30 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                         <!-- Afuera -->
                                     </div>

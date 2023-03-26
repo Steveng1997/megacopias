@@ -20,45 +20,28 @@ li.active {
   position: relative;
 }
 
-
-.links {
-  opacity: 0;
-  position: absolute;
-  top: 30%;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-.custom-pagination ::ng-deep .ngx-pagination .disabled {
+.ngx-pagination .disabled {
   contain: strict;
 }
 
-.custom-pagination ::ng-deep .pagination-next {
+.pagination-next {
   contain: strict;
 }
-
-.custom-pagination ::ng-deep .pagination-previous {
-  contain: strict;
-}
-
-
-
 
 
 /* ------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------ */
 /* Numbers for flecha */
 
-.custom-pagination ::ng-deep .current {
+.ngx-pagination .current {
   visibility: hidden;
 }
 
-/* .custom-pagination ::ng-deep .current ::ng-deep [aria-live="polite"] span {
+.pagination-previous {
   visibility: hidden;
-} */
+}
 
-.custom-pagination ::ng-deep .current ::ng-deep [aria-live="polite"] span:after {
+.ngx-pagination .current::before {
   visibility: visible;
   content: '<-';
   color: blue;
@@ -66,15 +49,11 @@ li.active {
   font-weight: bold;
 }
 
-.custom-pagination ::ng-deep .current ::ng-deep [aria-live="polite"] span::before {
+.ngx-pagination a {
   visibility: hidden;
 }
 
-.custom-pagination ::ng-deep a {
-  visibility: hidden;
-}
-
-.custom-pagination ::ng-deep a::after {
+.ngx-pagination a::before {
   visibility: visible;
   content: '->';
   color: blue;
@@ -90,56 +69,18 @@ li.active {
   transform: scale(1.1);
 }
 
+.modal.show .modal-dialog {
+  max-width: 60%;
+}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
+/* Codigo extenso */
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
 
 #start-resizable-editor-section {
   display: none

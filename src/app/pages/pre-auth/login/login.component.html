@@ -15,89 +15,34 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
-        <!-- <div class="card border-0 shadow rounded-3 my-5"> -->
-        <div class="m-0 vh-100 row justify-content-center align-items-center">
-          <div class="card-body p-4 p-sm-7">
-            <div class="card-title text-center mb-3 fw-bolder display-4">
-              <label class="text-danger">Megacopias la Novena</label>
-            </div>
-            <!-- <div class="card-title text-center mb-5 fw-bolder fs-3"> -->
-            <div class="card-title text-center mb-5 fw-bolder display-6">
-              <label>Bienvenido</label>
-            </div>
-
-
-            <!-- Modal -->
-            <ng-template let-modal>
-              <div class="modal-header">
-                <h5 class="modal-title" id="editProfileLabel">Resetear Password</h5>
-                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                <!-- Aqui se coloca lo adentro -->
-
-                <form #formLogin="ngForm" (submit)="restorePassword()">
-                  <div class="row justify-content-center">
-                    <div class="form-floating mb-3 col-6">
-                      <input class="form-control" [(ngModel)]="email" type="email" id="email" name="email"
-                        placeholder="Email" />
-                      <label for="usuario">Email</label>
-                    </div>
-                  </div>
-
-                  <div class="d-grid justify-content-center">
-                    <button type="submit" class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
-                      Resetear
-                    </button>
-                  </div>
-                </form>
-                <!-- Afuera -->
-              </div>
-            </ng-template>
-
-            <!-- Fin Modal -->
-
-            <form #formLogin="ngForm" (submit)="onLogin()">
-              <div class="row justify-content-center">
-                <div class="form-floating mb-3 col-6">
-                  <input class="form-control" [(ngModel)]="email" type="email" id="email" name="email"
-                    placeholder="Email" />
-                  <label for="usuario">Email</label>
-                </div>
-              </div>
-              <div class="row justify-content-center">
-                <div class="form-floating mb-3 col-6">
-                  <input class="form-control" [(ngModel)]="password" type="password" id="password" name="password"
-                    placeholder="Contraseña" />
-                  <label for="contrasena">Contraseña</label>
-                </div>
-              </div>
-
-              <div class="row position-absolute fixed-bottom mb-2">
-                <div class="col-md-6 d-grid justify-content-center">
-                  <button type="submit" class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
-                    Iniciar
-                  </button>
-                </div>
-
-                <div class="col-md-6 d-grid justify-content-center">
-                  <button type="submit" (click)="registro()"
-                    class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12">
-                    Registro
-                  </button>
-
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+  <div class="center">
+    <!-- <input type="checkbox" id="show">
+    <label for="show" class="show-btn">View Form</label> -->
+    <div class="container">
+      <label class="close-btn fas fa-times"></label>
+      <div class="text">
+        Login Form
       </div>
+      <form #formLogin="ngForm" (submit)="onLogin()">
+        <div class="data">
+          <label>Email</label>
+          <input [(ngModel)]="email" type="email" id="email" name="email" required>
+        </div>
+        <div class="data">
+          <label>Contraseña</label>
+          <input [(ngModel)]="password" type="password" id="password" name="password" required>
+        </div>
+        <!-- <div class="forgot-pass">
+          <a href="#">Forgot Password?</a>
+        </div> -->
+        <div class="btn">
+          <div class="inner"></div>
+          <button type="submit">login</button>
+        </div>
+        <div class="signup-link">
+          Not a member? <a (click)="registro()">Signup now</a>
+        </div>
+      </form>
     </div>
   </div>
 </body>
