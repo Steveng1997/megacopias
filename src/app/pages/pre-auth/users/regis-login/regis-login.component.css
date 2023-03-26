@@ -37,11 +37,20 @@ input[type="checkbox"] {
 }
 
 .container {
-  display: none;
+  /* display: none; */
   background: #fff;
   width: 410px;
   padding: 30px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.padre {
+  display: grid;
+}
+
+.hijo {
+  align-self: center;
+  justify-self: center;
 }
 
 .container {
@@ -80,7 +89,6 @@ input[type="checkbox"] {
 }
 
 /* End Button 2 Container */
-
 
 .container .text {
   font-size: 35px;
@@ -204,8 +212,6 @@ form .btn2 button {
   letter-spacing: 1px;
   cursor: pointer;
 }
-
-
 
 /* End Buttons 2 */
 

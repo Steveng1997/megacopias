@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/core/models/login';
+import * as Aos from 'aos';
+// Service
 import { LoginService } from 'src/app/core/services/login.service';
+// Alert
 import Swal from 'sweetalert2';
+// Modal
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+// Error Firebase
 import { AuthErrorCodes } from '@firebase/auth';
 
 @Component({
@@ -26,6 +31,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    Aos.init();
   }
 
   onLogin(): void {

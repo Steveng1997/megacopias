@@ -41,7 +41,33 @@ li.active {
   visibility: hidden;
 }
 
+.ngx-pagination .pagination-previous a:before, .ngx-pagination .pagination-previous.disabled:before{
+  visibility: hidden;
+}
+
+.ngx-pagination .current::after {
+  visibility: hidden;
+}
+
+
 .ngx-pagination .current::before {
+  visibility: hidden;
+}
+
+
+.ngx-pagination a {
+  visibility: hidden;
+}
+
+.ngx-pagination a::after {
+  visibility: visible;
+  content: '->';
+  color: blue;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.ngx-pagination a::before {
   visibility: visible;
   content: '<-';
   color: blue;
@@ -49,17 +75,7 @@ li.active {
   font-weight: bold;
 }
 
-.ngx-pagination a {
-  visibility: hidden;
-}
-
-.ngx-pagination a::before {
-  visibility: visible;
-  content: '->';
-  color: blue;
-  font-size: 3em;
-  font-weight: bold;
-}
+/* Zoom photo */
 
 .zoom {
   transition: transform .2s;
@@ -69,10 +85,15 @@ li.active {
   transform: scale(1.1);
 }
 
+/* End zoom photo */
+
+/* Modal */
+
 .modal.show .modal-dialog {
   max-width: 60%;
 }
 
+/* End modal */
 
 
 

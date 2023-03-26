@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/core/services/login.service';
 import Swal from 'sweetalert2';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-regis-login',
@@ -20,6 +21,7 @@ export class RegisLoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    Aos.init();
   }
 
   devolver() {
