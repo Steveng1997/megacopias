@@ -1,151 +1,101 @@
-<!-- <section _ngcontent-jwp-c16="" class="container pt-4 min-vh-100">
-    <div _ngcontent-jwp-c16="" class="row">
-        <div _ngcontent-jwp-c16="" class="col col-lg-6 offset-lg-3">
-            <div _ngcontent-jwp-c16="" class="card shadow bg-dark text-bg-dark">
-                <div _ngcontent-jwp-c16="" class="card-body text-center title-personal">
-                    <h1 _ngcontent-jwp-c16="" class="h4 fw-bold text-uppercase"> REGISTRO DE TARJETAS DE CREDITO </h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div _ngcontent-jwp-c16="" class="row mt-4">
-        <div _ngcontent-jwp-c16="" class="col-lg-8 off offset-lg-2">
-            <div _ngcontent-jwp-c16="" id="formAlmacenadas" class="card p-3 shadow">
-                <div _ngcontent-jwp-c16="" class="car-body text-center">
-                    <h5 _ngcontent-jwp-c16="" class="text-uppercase mb-4"> Tarjetas Almacenadas </h5>
-                    <div _ngcontent-jwp-c16="" class="table-responsive">
-                        <table _ngcontent-jwp-c16="" class="table align-middle">
-                            <thead _ngcontent-jwp-c16="" class="table-light">
-                                <tr _ngcontent-jwp-c16="">
-                                    <th _ngcontent-jwp-c16="">Titular</th>
-                                    <th _ngcontent-jwp-c16="">N° de tarjeta</th>
-                                    <th _ngcontent-jwp-c16="">Fec/Exp</th>
-                                    <th _ngcontent-jwp-c16="">CVV</th>
-                                    <th _ngcontent-jwp-c16="">Editar</th>
-                                    <th _ngcontent-jwp-c16="">Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody _ngcontent-jwp-c16="" class="table-group-divider">
-                                <tr _ngcontent-jwp-c16="">
-                                    <td _ngcontent-jwp-c16="">Juan Perez</td>
-                                    <td _ngcontent-jwp-c16="">2022330093992333</td>
-                                    <td _ngcontent-jwp-c16="">12/21</td>
-                                    <td _ngcontent-jwp-c16="">123</td>
-                                    <td _ngcontent-jwp-c16=""><i _ngcontent-jwp-c16="" role="button"
-                                            class="fa-solid fa-pen-to-square text-info"></i></td>
-                                    <td _ngcontent-jwp-c16=""><i _ngcontent-jwp-c16="" role="button"
-                                            class="far fa-regular fa-trash-can text-danger"></i></td>
-                                </tr>
-                                <tr _ngcontent-jwp-c16="">
-                                    <td _ngcontent-jwp-c16="">María Castro</td>
-                                    <td _ngcontent-jwp-c16="">1133330093992333</td>
-                                    <td _ngcontent-jwp-c16="">11/21</td>
-                                    <td _ngcontent-jwp-c16="">123</td>
-                                    <td _ngcontent-jwp-c16=""><i _ngcontent-jwp-c16="" role="button"
-                                            class="fa-solid fa-pen-to-square text-info"></i></td>
-                                    <td _ngcontent-jwp-c16=""><i _ngcontent-jwp-c16="" role="button"
-                                            class="far fa-regular fa-trash-can text-danger"></i></td>
-                                </tr>
-                            </tbody>
-                        </table>
+<link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+
+<section class="contact-section pt-130 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="contact-item-wrapper">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-xl-12">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="lni lni-phone"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Contact</h4>
+                                    <p>0984537278623</p>
+                                    <p>yourmail@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-12">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="las la-map-marker"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Address</h4>
+                                    <p>175 5th Ave, New York, NY 10010 </p>
+                                    <p>United States</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-12">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="lni lni-alarm-clock"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Shedule</h4>
+                                    <p>24 Hours / 7 Days Open </p>
+                                    <p>Office time: 10 AM - 5:30 PM</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div _ngcontent-jwp-c16="" id="formModificar" class="card p-3 mt-4 d-none shadow">
-                <div _ngcontent-jwp-c16="" class="car-body text-center">
-                    <h5 _ngcontent-jwp-c16="" class="text-uppercase mb-4"> Modificar Tarjeta </h5>
-                    <form _ngcontent-jwp-c16="" novalidate="" class="ng-untouched ng-pristine ng-invalid">
-                        <div _ngcontent-jwp-c16="" class="input-group input-group-lg mb-3"><span _ngcontent-jwp-c16=""
-                                id="basic-addon1" class="input-group-text"><i _ngcontent-jwp-c16=""
-                                    class="fa-solid fa-id-card"></i></span><input _ngcontent-jwp-c16=""
-                                formcontrolname="name" type="text" placeholder="Titular" aria-label="Username"
-                                aria-describedby="basic-addon1" required=""
-                                class="form-control ng-untouched ng-pristine ng-invalid"></div>
-                        <div _ngcontent-jwp-c16="" class="input-group input-group-lg mb-3"><span _ngcontent-jwp-c16=""
-                                id="basic-addon1" class="input-group-text"><i _ngcontent-jwp-c16=""
-                                    class="fa-solid fa-credit-card"></i></span><input _ngcontent-jwp-c16=""
-                                formcontrolname="tNumber" type="text" placeholder="Número de tarjeta"
-                                aria-label="Username" aria-describedby="basic-addon1" maxlength="16" required=""
-                                class="form-control ng-untouched ng-pristine ng-invalid"></div>
-                        <div _ngcontent-jwp-c16="" class="row">
-                            <div _ngcontent-jwp-c16="" class="col-lg-7">
-                                <div _ngcontent-jwp-c16="" class="input-group input-group-lg mb-3"><span
-                                        _ngcontent-jwp-c16="" id="basic-addon1" class="input-group-text"><i
-                                            _ngcontent-jwp-c16="" class="fa-solid fa-calendar-days"></i></span><input
-                                        _ngcontent-jwp-c16="" formcontrolname="dateExp" type="text" placeholder="MM/YY"
-                                        aria-label="Username" aria-describedby="basic-addon1" maxlength="5" required=""
-                                        class="form-control ng-untouched ng-pristine ng-invalid"></div>
-                            </div>
-                            <div _ngcontent-jwp-c16="" class="col-lg-5">
-                                <div _ngcontent-jwp-c16="" class="input-group input-group-lg mb-3"><span
-                                        _ngcontent-jwp-c16="" id="basic-addon1" class="input-group-text"><i
-                                            _ngcontent-jwp-c16="" class="fa-solid fa-key"></i></span><input
-                                        _ngcontent-jwp-c16="" formcontrolname="cvv" type="password" placeholder="CVV"
-                                        aria-label="Username" aria-describedby="basic-addon1" maxlength="3" required=""
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="custom-tooltip"
-                                        title="Tres numeros al reverso de tu tarjeta."
-                                        class="form-control ng-untouched ng-pristine ng-invalid"></div>
+            <div class="col-xl-8">
+                <div class="contact-form-wrapper">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-8 mx-auto">
+                            <div class="section-title text-center mb-50">
+                                <span class="wow fadeInDown" data-wow-delay=".2s"
+                                    style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">Get
+                                    in Touch</span>
+                                <h2 class="wow fadeInUp" data-wow-delay=".4s"
+                                    style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Ready
+                                    to Get Started</h2>
+                                <p class="wow fadeInUp" data-wow-delay=".6s"
+                                    style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">At
+                                    vero eos et accusamus et iusto odio
+                                    dignissimos ducimus quiblanditiis praesentium</p>
                             </div>
                         </div>
-                        <div _ngcontent-jwp-c16="" class="d-flex gap-2"><button _ngcontent-jwp-c16="" type="submit"
-                                class="btn btn-warning btn-lg" disabled=""><i _ngcontent-jwp-c16=""
-                                    class="fa-solid fa-database"></i>&nbsp;Aceptar</button><button _ngcontent-jwp-c16=""
-                                type="button" class="btn btn-danger btn-lg"><i _ngcontent-jwp-c16=""
-                                    class="fa-solid fa-close"></i>&nbsp;Cancelar</button></div>
-                    </form>
-                </div>
-            </div>
-            <div _ngcontent-jwp-c16="" id="formNuevas" class="card p-3 mt-4 shadow">
-                <div _ngcontent-jwp-c16="" class="car-body text-center">
-                    <h5 _ngcontent-jwp-c16="" class="text-uppercase mb-4"> Agregar Tarjeta </h5>
-                    <form _ngcontent-jwp-c16="" novalidate="" class="ng-untouched ng-pristine ng-invalid">
-                        <div _ngcontent-jwp-c16="" class="input-group input-group-lg mb-3"><span _ngcontent-jwp-c16=""
-                                id="basic-addon1" class="input-group-text"><i _ngcontent-jwp-c16=""
-                                    class="fa-solid fa-id-card"></i></span><input _ngcontent-jwp-c16=""
-                                formcontrolname="name" type="text" placeholder="Titular" aria-label="Username"
-                                aria-describedby="basic-addon1" required=""
-                                class="form-control ng-untouched ng-pristine ng-invalid"></div>
-                        <div _ngcontent-jwp-c16="" class="input-group input-group-lg mb-3"><span _ngcontent-jwp-c16=""
-                                id="basic-addon1" class="input-group-text"><i _ngcontent-jwp-c16=""
-                                    class="fa-solid fa-credit-card"></i></span><input _ngcontent-jwp-c16=""
-                                formcontrolname="tNumber" type="text" placeholder="Número de tarjeta"
-                                aria-label="Username" aria-describedby="basic-addon1" maxlength="16" required=""
-                                class="form-control ng-untouched ng-pristine ng-invalid"></div>
-                        <div _ngcontent-jwp-c16="" class="row">
-                            <div _ngcontent-jwp-c16="" class="col-lg-7">
-                                <div _ngcontent-jwp-c16="" class="input-group input-group-lg mb-3"><span
-                                        _ngcontent-jwp-c16="" id="basic-addon1" class="input-group-text"><i
-                                            _ngcontent-jwp-c16="" class="fa-solid fa-calendar-days"></i></span><input
-                                        _ngcontent-jwp-c16="" formcontrolname="dateExp" type="number"
-                                        placeholder="MM/YY" aria-label="Username" aria-describedby="basic-addon1"
-                                        maxlength="5" required=""
-                                        class="form-control ng-untouched ng-pristine ng-invalid"></div>
+                    </div>
+                    <form  class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="name" id="name" placeholder="Name" required="">
                             </div>
-                            <div _ngcontent-jwp-c16="" class="col-lg-5">
-                                <div _ngcontent-jwp-c16="" class="input-group input-group-lg mb-3"><span
-                                        _ngcontent-jwp-c16="" id="basic-addon1" class="input-group-text"><i
-                                            _ngcontent-jwp-c16="" class="fa-solid fa-key"></i></span><input
-                                        _ngcontent-jwp-c16="" formcontrolname="cvv" type="password" placeholder="CVV"
-                                        aria-label="Username" aria-describedby="basic-addon1" maxlength="3" required=""
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="custom-tooltip"
-                                        title="Tres numeros al reverso de tu tarjeta."
-                                        class="form-control ng-untouched ng-pristine ng-invalid"></div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" id="email" placeholder="Email" required="">
                             </div>
                         </div>
-                        <div _ngcontent-jwp-c16="" class="d-grid gap-2"><button _ngcontent-jwp-c16="" type="submit"
-                                class="btn btn-success btn-lg" disabled=""><i _ngcontent-jwp-c16=""
-                                    class="fa-solid fa-database"></i>&nbsp;Aceptar</button></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="phone" id="phone" placeholder="Phone" required="">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="subject" id="email" placeholder="Subject" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <textarea name="message" id="message" placeholder="Type Message" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="button text-center">
+                                    <button type="submit" class="theme-btn">Send Message</button>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
-
-
-
-<label>{{number12}}
-<input type="number" value="1" (change)="cambio($event)">
-<label>{{respuesta}}</label>
+</section>

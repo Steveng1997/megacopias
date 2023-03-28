@@ -1,5 +1,5 @@
 export class Galeria {
-  id?: string;
+  id?: number;
   selectFirst?: string;
   imagen?: string;
   selectGroup?: string;
