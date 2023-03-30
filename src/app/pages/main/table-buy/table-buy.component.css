@@ -67,20 +67,18 @@
     cursor: pointer;
   }
 
-  .cabeceraBuy {
-    overflow: auto;
-  }
-
   .ejemplo {
     position: absolute;
-    width: 150px;
-    margin: 10px 50px;
-    padding: 20px;
+    width: -webkit-fill-available;
     background-color: white;
     color: #000;
-    margin-left: 88%;
-    margin-top: 0%;
+    margin-left: 76%;
     word-break: break-all;
+  }
+
+  table {
+    border-collapse: separate;
+    width: -webkit-fill-available;
   }
 }
 
@@ -91,20 +89,18 @@
     cursor: pointer;
   }
 
-  .cabeceraBuy {
-    overflow: auto;
-  }
-
   .ejemplo {
     position: absolute;
-    width: 150px;
-    margin: 10px 50px;
-    padding: 20px;
+    width: -webkit-fill-available;
     background-color: white;
     color: #000;
-    margin-left: 88%;
-    margin-top: 0%;
+    margin-left: 76%;
     word-break: break-all;
+  }
+
+  table {
+    border-collapse: separate;
+    width: -webkit-fill-available;
   }
 }
 
@@ -115,19 +111,17 @@
     position: inherit;
   }
 
-  .cabeceraBuy {
-    overflow: auto;
-  }
-
   .ejemplo {
     position: absolute;
-    width: 150px;
-    margin: 10px 50px;
-    padding: 20px;
+    width: -webkit-fill-available;
     background-color: white;
     color: #000;
-    margin-left: 88%;
-    margin-top: 0%;
+    margin-left: 76%;
     word-break: break-all;
+  }
+
+  table {
+    border-collapse: separate;
+    width: -webkit-fill-available;
   }
 }

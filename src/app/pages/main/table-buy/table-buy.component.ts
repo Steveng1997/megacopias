@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-table-buy',
@@ -10,11 +8,9 @@ import { Router } from '@angular/router';
 export class TableBuyComponent implements OnInit {
 
   InformationBuy: any;
+  public page!: number;
 
-  constructor(
-    public router: Router,
-    public formBuilder: FormBuilder
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.obtenerInfo();
@@ -22,7 +18,12 @@ export class TableBuyComponent implements OnInit {
 
   obtenerInfo() {
     this.InformationBuy = JSON.parse(localStorage.getItem('informaciondetodo'));
-    console.log(this.InformationBuy)
   }
 
+  DeleteUser(e) {
+    const items = JSON.parse(localStorage.getItem('informaciondetodo'));
+    const filtered = items.filter(item => item.id === e);
+    console.log(filtered)
+    localStorage.setItem('informaciondetodo', JSON.stringify(filtered));
+  }
 }

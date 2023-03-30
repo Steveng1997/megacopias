@@ -35,6 +35,7 @@ import { HomeComponent } from './pages/main/home/home.component';
 import { GalleryComponent } from './pages/main/gallery/gallery.component';
 import { VideosComponent } from './pages/main/videos/videos.component';
 import { ContactanosComponent } from './pages/main/contactanos/contactanos.component';
+import { TableBuyComponent } from './pages/main/table-buy/table-buy.component';
 
 // Admin
 import { AdminComponent } from './pages/pre-auth/admin/admin.component';
@@ -59,7 +60,6 @@ import { VideoService } from './core/services/video.service';
 // Cookies
 import { CookieService } from 'ngx-cookie-service';
 import { LoginGuardian } from './pages/pre-auth/login/login-guardian';
-import { TableBuyComponent } from './pages/main/table-buy/table-buy.component';
 
 firebase.initializeApp({
   databaseURL: 'https://megacopias-ceea2-default-rtdb.firebaseio.com',
@@ -95,7 +95,7 @@ firebase.initializeApp({
     ContactanosComponent,
     VideoAdminComponent,
     AddVideoComponent,
-    TableBuyComponent,
+    TableBuyComponent
   ],
   imports: [
     BrowserModule,

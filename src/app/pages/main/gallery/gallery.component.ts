@@ -36,7 +36,6 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGallery();
-    this.obtenerInfo();
   }
 
   getGallery() {
@@ -58,11 +57,6 @@ export class GalleryComponent implements OnInit {
     });
   }
 
-  obtenerInfo() {
-    this.informacion = JSON.parse(localStorage.getItem('informaciondetodo'));
-    console.log(this.informacion)
-  }
-
   guardarInfo(e) {
     Swal.fire({
       text: "¿Deseas comprarlo?",
@@ -79,7 +73,7 @@ export class GalleryComponent implements OnInit {
           localStorage.setItem("informaciondetodo", JSON.stringify([]))
         }
         var informacionTodoa = JSON.parse(localStorage.getItem('informaciondetodo'))
-        informacionTodoa.push({ nombre: e.nombre, precio: e.precio })
+        informacionTodoa.push({ nombre: e.nombre, precio: e.precio, id: e.id })
 
         localStorage.setItem("informaciondetodo", JSON.stringify(informacionTodoa))
 
