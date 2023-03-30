@@ -44,6 +44,10 @@ export class AdminComponent implements OnInit {
     this.router.navigate([`admin/galleryAdmin`]);
   }
 
+  video() {
+    this.router.navigate([`admin/videoAdmin`]);
+  }
+
 
   salir() {
     this.router.navigate([`login`]);

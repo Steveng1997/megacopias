@@ -20,6 +20,11 @@ li.active {
   position: relative;
 }
 
+
+/* ------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------ */
+/* Numbers for flecha */
+
 .ngx-pagination .disabled {
   contain: strict;
 }
@@ -28,20 +33,17 @@ li.active {
   contain: strict;
 }
 
-
-/* ------------------------------------------------------------------------------ */
-/* ------------------------------------------------------------------------------ */
-/* Numbers for flecha */
-
 .ngx-pagination .current {
   visibility: hidden;
 }
 
 .pagination-previous {
   visibility: hidden;
+  contain: strict
 }
 
-.ngx-pagination .pagination-previous a:before, .ngx-pagination .pagination-previous.disabled:before{
+.ngx-pagination .pagination-previous a:before,
+.ngx-pagination .pagination-previous.disabled:before {
   visibility: hidden;
 }
 
@@ -61,7 +63,7 @@ li.active {
 
 .ngx-pagination a::after {
   visibility: visible;
-  content: '->';
+  content: '>';
   color: blue;
   font-size: 3em;
   font-weight: bold;
@@ -69,11 +71,17 @@ li.active {
 
 .ngx-pagination a::before {
   visibility: visible;
-  content: '<-';
+  content: '<';
   color: blue;
   font-size: 3em;
   font-weight: bold;
 }
+
+.ngx-pagination li {
+  margin-left: -1.4em
+}
+
+/* End Pagination */
 
 /* Zoom photo */
 

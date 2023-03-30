@@ -11,7 +11,7 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style href="login.component.css"></style>
+    <style href="add-video.component.css"></style>
 </head>
 
 <body>
@@ -28,51 +28,15 @@
                         <form [formGroup]="formTemplate" (ngSubmit)="onAddGalery(formTemplate.value)">
 
                             <div class="contenedors">
-                                <div class="form-floating mb-3 col-6">
-                                    <div class="selection btn-group">
-                                        <mat-form-field appearance="fill">
-                                            <select matNativeControl formControlName="selectFirst"
-                                                (change)="seleccionPrincipal($event)">
-                                                <option value="0" selected>Seleccione...</option>
-                                                <option value="grupos">Grupos</option>
-                                                <option value="fotos">Fotos</option>
-                                            </select>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-
 
                                 <div class="form-floating mb-3 col-6">
-                                    <input c lass="form-control" type="file" accept=".png, .jpeg, .jpg"
-                                        formControlName="imagen" (change)="ImageTexto($event)" />
+                                    <input c lass="form-control" type="file" accept="vide/*"
+                                        formControlName="video" (change)="VideoTexto($event)" />
                                 </div>
 
-                                <div class="form-floating mb-3">
-                                    <div class="selection btn-group">
-                                        <mat-form-field appearance="fill">
-                                            <select matNativeControl formControlName="selectGroup"
-                                                (change)="seleccionGrupo($event)">
-                                                <option value="0" selected>Selecciona un grupo...</option>
-                                                <option value="portaretratos">Portaretratos</option>
-                                                <option value="fotos">Fotos</option>
-                                            </select>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-
-                                <div class="form-floating mb-3 col-5" *ngIf="selectPrincipal == 'fotos'">
+                                <div class="form-floating mb-3 col-8">
                                     <input class="form-control" formControlName="nombre" type="text" name="nombre" />
                                     <label class="text-center">Nombre</label>
-                                </div>
-
-                                <div class="form-floating mb-3 col-5" *ngIf="selectPrincipal == 'fotos'">
-                                    <textarea class="form-control description" formControlName="descripcion"></textarea>
-                                    <label class="text-center">Descripcion</label>
-                                </div>
-
-                                <div class="form-floating mb-3 col-5" *ngIf="selectPrincipal == 'fotos'">
-                                    <input class="form-control" formControlName="precio" type="number" name="precio" />
-                                    <label class="text-center">Precio</label>
                                 </div>
                             </div>
 
@@ -95,8 +59,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </form>
                     </div>

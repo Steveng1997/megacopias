@@ -47,16 +47,19 @@ import { HomeAddAdminComponent } from './pages/pre-auth/home-admin/home-add-admi
 import { UpdateHomeComponent } from './pages/pre-auth/home-admin/update-home/update-home.component';
 import { GalleyAdminComponent } from './pages/pre-auth/galley-admin/galley-admin.component';
 import { AddgalleryComponent } from './pages/pre-auth/galley-admin/addgallery/addgallery.component';
+import { VideoAdminComponent } from './pages/pre-auth/video-admin/video-admin.component';
+import { AddVideoComponent } from './pages/pre-auth/video-admin/add-video/add-video.component';
 
 // Services
 import { LoginService } from './core/services/login.service';
 import { HomeService } from './core/services/home.service';
 import { GaleriaService } from './core/services/galeria.service';
+import { VideoService } from './core/services/video.service';
 
 // Cookies
 import { CookieService } from 'ngx-cookie-service';
 import { LoginGuardian } from './pages/pre-auth/login/login-guardian';
-
+import { TableBuyComponent } from './pages/main/table-buy/table-buy.component';
 
 firebase.initializeApp({
   databaseURL: 'https://megacopias-ceea2-default-rtdb.firebaseio.com',
@@ -90,6 +93,9 @@ firebase.initializeApp({
     GalleyAdminComponent,
     AddgalleryComponent,
     ContactanosComponent,
+    VideoAdminComponent,
+    AddVideoComponent,
+    TableBuyComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,6 +122,7 @@ firebase.initializeApp({
     LoginGuardian,
     LoginService,
     GaleriaService,
+    VideoService,
     HomeService
   ],
   bootstrap: [AppComponent],

@@ -1,0 +1,133 @@
+/* Query para celular */
+
+@media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
+  .ejemplo {
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+  }
+}
+
+@media only screen and (min-device-width: 350px) and (max-device-width: 410px) {
+  .ejemplo {
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+  }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 450px) {
+  .ejemplo {
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+  }
+}
+
+@media only screen and (min-device-width: 539px) and (max-device-width: 545px) {
+  .ejemplo {
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+  }
+}
+
+@media only screen and (min-device-width: 760px) and (max-device-width: 850px) {
+  .ejemplo {
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+  }
+}
+
+@media only screen and (min-device-width: 910px) and (max-device-width: 950px) {
+  .ejemplo {
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+  }
+}
+
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
+  .btnBuy {
+    display: grid;
+    position: inherit;
+    cursor: pointer;
+  }
+
+  .cabeceraBuy {
+    overflow: auto;
+  }
+
+  .ejemplo {
+    position: absolute;
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+    margin-left: 88%;
+    margin-top: 0%;
+    word-break: break-all;
+  }
+}
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+  .btnBuy {
+    display: grid;
+    position: inherit;
+    cursor: pointer;
+  }
+
+  .cabeceraBuy {
+    overflow: auto;
+  }
+
+  .ejemplo {
+    position: absolute;
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+    margin-left: 88%;
+    margin-top: 0%;
+    word-break: break-all;
+  }
+}
+
+
+@media only screen and (min-device-width: 1700px) and (max-device-width: 2000px) {
+  .btnBuy {
+    display: grid;
+    position: inherit;
+  }
+
+  .cabeceraBuy {
+    overflow: auto;
+  }
+
+  .ejemplo {
+    position: absolute;
+    width: 150px;
+    margin: 10px 50px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+    margin-left: 88%;
+    margin-top: 0%;
+    word-break: break-all;
+  }
+}

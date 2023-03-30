@@ -23,13 +23,10 @@
                                 style="height: 300px;width: 100%;"
                                 [ngStyle]="{'backgroundImage':'url('+gallery.imagen+')'}">
 
-
-
-
                                 <!-- Modal -->
                                 <ng-template class="custom-modal" #editProfileModal let-modal>
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="editProfileLabel">Listado de puntaje
+                                        <h5 class="modal-title" id="editProfileLabel">Fotos de {{gallery.selectGroup}}
                                         </h5>
 
                                         <button type="button" class="close" (click)="modal.dismiss()"
@@ -72,38 +69,29 @@
                                                                 <div style="height:20px" aria-hidden="true"
                                                                     class="wp-block-spacer"></div>
 
-
-
                                                                 <p class="has-text-align-right has-very-dark-gray-color has-text-color has-custom-font"
                                                                     style="font-size:23px;font-family:Fira Sans">
                                                                     {{gale.nombre}}</p>
-
-
 
                                                                 <p class="has-text-align-right has-vivid-red-color has-text-color has-custom-font"
                                                                     style="font-size:23px;font-family:Fira Sans">
                                                                     ${{gale.precio}}
                                                                 </p>
 
-
-
                                                                 <div class="wp-block-button alignright is-style-btn-rounded has-custom-size has-custom-font has-custom-weight"
                                                                     style="font-family:Fira Sans;font-weight:400;font-size:15px">
                                                                     <a class="wp-block-button__link has-vivid-white-color has-pale-pink-background-color has-text-color has-background"
-                                                                        (click)="guardarInfo(gale)">See Offer</a>
+                                                                        (click)="guardarInfo(gale)">Comprar</a>
                                                                 </div>
                                                             </div>
-
-
 
                                                             <div class="wp-block-column">
                                                                 <div style="height:40px" aria-hidden="true"
                                                                     class="wp-block-spacer"></div>
 
-
-
-                                                                <figure class="wp-block-image"><img
-                                                                        src="{{gale.imagen}}"></figure>
+                                                                <figure class="wp-block-image">
+                                                                    <img src="{{gale.imagen}}">
+                                                                </figure>
                                                             </div>
                                                         </div>
                                                     </div>

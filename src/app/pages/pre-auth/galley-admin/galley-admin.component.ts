@@ -33,9 +33,4 @@ export class GalleyAdminComponent implements OnInit {
   agregar() {
     this.router.navigate([`admin/galleryAdd`]);
   }
-
-  getGallety() {
-
-  }
-
 }

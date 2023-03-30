@@ -6,6 +6,10 @@
   background: linear-gradient(90deg, rgb(255, 255, 255), rgb(3, 59, 244));
 }
 
+body {
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(3, 59, 244));
+}
+
 .megamenu .dropdown-menu {
   background: none;
   border: none;
@@ -38,8 +42,10 @@ code {
   letter-spacing: 0.08em;
 }
 
+
+
 @media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
-  .btnBuy{
+  .btnBuy {
     display: grid;
     position: inherit;
     cursor: pointer;
@@ -47,15 +53,16 @@ code {
 }
 
 @media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
-  .btnBuy{
+  .btnBuy {
     display: grid;
     position: inherit;
     cursor: pointer;
   }
 }
 
+
 @media only screen and (min-device-width: 1700px) and (max-device-width: 2000px) {
-  .btnBuy{
+  .btnBuy {
     display: grid;
     position: inherit;
   }

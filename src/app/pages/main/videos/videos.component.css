@@ -529,8 +529,11 @@ mark,
 }
 
 .img-fluid {
-    max-width: 100%;
-    height: auto;
+    /* width: 50vw; */
+    /* height: 50vh; */
+    width: 516px;
+    height: 425px;
+    object-fit: fill;
 }
 
 .img-thumbnail {
@@ -7083,7 +7086,9 @@ a.close.disabled {
     }
 }
 
-.carousel-item.active,.carousel-item-next,.carousel-item-prev {
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
     display: block;
     transition: transform .6s ease;
 }

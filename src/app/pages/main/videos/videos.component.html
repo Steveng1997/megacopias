@@ -18,7 +18,7 @@
         <div class="rounded shadow-lg overflow-hidden transform-perspective-right">
           <div id="carousel_example" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" id="carousel_example">
-              <div class="carousel-item" [ngClass]="{active:index===0}"
+              <div class="carousel-item" [ngClass]="{'active':index===0}"
                 *ngFor="let gallery of galeria; let index=index">
                 <img class="img-fluid" src="{{gallery.imagen}}">
               </div>

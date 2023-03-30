@@ -14,6 +14,8 @@ import { UpdateUsersComponent } from './pages/pre-auth/users/update-users/update
 import { UpdateHomeComponent } from './pages/pre-auth/home-admin/update-home/update-home.component';
 import { AddgalleryComponent } from './pages/pre-auth/galley-admin/addgallery/addgallery.component';
 import { GalleyAdminComponent } from './pages/pre-auth/galley-admin/galley-admin.component';
+import { VideoAdminComponent } from './pages/pre-auth/video-admin/video-admin.component';
+import { AddVideoComponent } from './pages/pre-auth/video-admin/add-video/add-video.component';
 
 const routes: Routes = [
   {
@@ -40,38 +42,48 @@ const routes: Routes = [
       {
         path: 'usuarios',
         component: UsersComponent,
-        canActivate: [LoginGuardian],
+        
       },
       {
         path: 'editar-User/:id',
         component: UpdateUsersComponent,
-        canActivate: [LoginGuardian],
+        
       },
       {
         path: 'home',
         component: HomeAdminComponent,
-        canActivate: [LoginGuardian],
+        
       },
       {
         path: 'homeAdd',
         component: HomeAddAdminComponent,
-        canActivate: [LoginGuardian],
+        
       },
       {
         path: 'editar-Home/:id',
         component: UpdateHomeComponent,
-        canActivate: [LoginGuardian],
+        
       },
       {
         path: 'galleryAdmin',
         component: GalleyAdminComponent,
-        canActivate: [LoginGuardian],
+        
       },
       {
         path: 'galleryAdd',
         component: AddgalleryComponent,
-        canActivate: [LoginGuardian],
+        
       },
+      {
+        path: 'videoAdmin',
+        component: VideoAdminComponent,
+        
+      },
+      {
+        path: 'videoAdd',
+        component: AddVideoComponent,
+
+      }
     ],
   }
 

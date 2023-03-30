@@ -39,7 +39,12 @@ export class AddgalleryComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  devolver() {
+    this.router.navigate([`admin/galleryAdmin`]);
+  }
+
   onAddGalery(formValue) {
+    debugger
     if (this.formTemplate.value.selectFirst != '') {
       this.serviceGallery.register(formValue).then((rp) => {
         if (rp) {
@@ -91,10 +96,6 @@ export class AddgalleryComponent implements OnInit {
         this.imagetexto1 = reader.result;
       }
     };
-  }
-
-  devolver() {
-    this.router.navigate([`admin/home`]);
   }
 
   seleccionPrincipal(e) {

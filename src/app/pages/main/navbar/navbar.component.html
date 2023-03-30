@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" id="headBuy" >
         <div class="container-fluid">
             <a class="navbar-brand font-weight-bold d-block d-lg-none" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -26,18 +26,30 @@
                     </li>
                     <li class="nav-item"><a class="nav-link font-weight-bold text-uppercase">Contact</a>
                     </li>
-
-                  
                 </ul>
 
+                <!-- <ul class="navbar-nav">
+                    <li class="bi bi-cart btnBuy"
+                        onclick="document.getElementById('tr').style.display='block'; this.focus(); return false;"
+                        onblur="document.getElementById('head').style.display='none'; this.focus(); return true;" style="font-size: 1.5rem;"></li>
+                </ul> -->
+
                 <ul class="navbar-nav">
-                    <li class="bi bi-cart btnBuy" style="font-size: 1.5rem;"></li>
+                    <li class="bi bi-cart btnBuy" id="btnBuy" style="font-size: 1.5rem;"></li>
                 </ul>
 
 
             </div>
         </div>
     </nav>
+    <div class="cabeceraBuy">
+        <div id="tr" style="display:none">
+            <!-- Holadddddddddddddddddddddddddddddddddddddddddddd que tal! Yo soy el elemento oculto  -->
+            <app-table-buy></app-table-buy>
+        </div>
+    </div>
+
+    <script src="/src/carousel.js"></script>
 </body>
 
 </html>
