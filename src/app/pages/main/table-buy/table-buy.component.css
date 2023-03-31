@@ -77,8 +77,31 @@
   }
 
   table {
-    border-collapse: separate;
-    width: -webkit-fill-available;
+    border-collapse: collapse;
+    border-spacing: 0px;
+  }
+
+  table tr {
+    margin-bottom: 0;
+    overflow: hidden;
+    height: 25px;
+    width: 100%;
+    padding: 0;
+  }
+
+  table tr td {
+    border: 1px solid #000;
+    width: 24%;
+  }
+
+  table input {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+  }
+
+  .tdCantidad {
+    width: 40%;
   }
 }
 
@@ -99,8 +122,31 @@
   }
 
   table {
-    border-collapse: separate;
-    width: -webkit-fill-available;
+    border-collapse: collapse;
+    border-spacing: 0px;
+  }
+
+  table tr {
+    margin-bottom: 0;
+    overflow: hidden;
+    height: 25px;
+    width: 100%;
+    padding: 0;
+  }
+
+  table tr td {
+    border: 1px solid #000;
+    width: 24%;
+  }
+
+  table input {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+  }
+
+  .tdCantidad {
+    width: 40%;
   }
 }
 
@@ -121,7 +167,30 @@
   }
 
   table {
-    border-collapse: separate;
-    width: -webkit-fill-available;
+    border-collapse: collapse;
+    border-spacing: 0px;
+  }
+
+  table tr {
+    margin-bottom: 0;
+    overflow: hidden;
+    height: 25px;
+    width: 100%;
+    padding: 0;
+  }
+
+  table tr td {
+    border: 1px solid #000;
+    width: 24%;
+  }
+
+  table input {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+  }
+
+  .tdCantidad {
+    width: 40%;
   }
 }

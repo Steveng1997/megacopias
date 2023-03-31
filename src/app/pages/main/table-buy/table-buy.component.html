@@ -13,35 +13,38 @@
 </head>
 
 <body>
-        <div class="ejemplo">
-            <h5 class="noHayDatos" *ngIf="InformationBuy == null">
-                No hay datos para mostrar
-            </h5>
-            <table *ngIf="InformationBuy != null">
-                <thead>
-                    <tr>
-                        <td>Nombre</td>
-                        <td>Precio</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="
+    <div class="ejemplo">
+        <h5 class="noHayDatos" *ngIf="InformationBuy == null">
+            No hay datos para mostrar
+        </h5>
+        <table *ngIf="InformationBuy != null">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Precio</td>
+                    <td>Cantidad</td>
+                    <td>Total</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="
                           let buy of InformationBuy
                             | paginate: { itemsPerPage: 5, currentPage: page }
                         ">
-                        <td>{{ buy.nombre }}</td>
-                        <td>{{ buy.precio }}</td>
-                        <i class="fas fa-edit" routerLink="/admin/editar-User/{{ buy.id }}"></i>
-                        <i (click)="DeleteUser(buy.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+                    <td>{{ buy.nombre }}</td>
+                    <td>{{ buy.precio }}</td>
+                    <td><input type="number" value="{{buy.cantidad}}" (change)="amount($event, buy.id)"
+                            style="width: 100%;"></td>
+                    <td>{{buy.total}}</td>
+                    <i (click)="DeleteUser(buy.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                </tr>
+            </tbody>
+        </table>
 
-            <div>
-                <button>Confirmar</button>
-            </div>
+        <div>
+            <button>Confirmar</button>
         </div>
+    </div>
 </body>
 
 </html>
