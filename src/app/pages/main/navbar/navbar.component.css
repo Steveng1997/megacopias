@@ -3,7 +3,9 @@
 }
 
 .navbar {
-  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(3, 59, 244));
+  /* background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%); */
+  background: linear-gradient(150deg, #d13e3c 15%, #555abf 94%);
+  color: white;
 }
 
 body {
@@ -42,5 +44,7 @@ code {
   letter-spacing: 0.08em;
 }
 
-
+.nav-link{
+   color: white;
+}
 

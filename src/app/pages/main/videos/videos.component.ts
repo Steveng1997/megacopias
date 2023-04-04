@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 // Service
-import { GaleriaService } from 'src/app/core/services/galeria.service';
+import { VideoService } from 'src/app/core/services/video.service';
 
 @Component({
   selector: 'app-videos',
@@ -11,12 +11,12 @@ import { GaleriaService } from 'src/app/core/services/galeria.service';
 })
 export class VideosComponent implements OnInit {
 
-  galeria: any[] = [];
+  video: any[] = [];
 
   constructor(
     public router: Router,
     public formBuilder: FormBuilder,
-    public serviceGallery: GaleriaService,
+    public serviceGallery: VideoService,
   ) { }
 
   ngOnInit(): void {
@@ -24,8 +24,8 @@ export class VideosComponent implements OnInit {
   }
 
   getGallery() {
-    this.serviceGallery.getGalleryByGrupos().subscribe((dataGallery) => {
-      this.galeria = dataGallery;
+    this.serviceGallery.getVideo().subscribe((dataGallery) => {
+      this.video = dataGallery;
     });
   }
 

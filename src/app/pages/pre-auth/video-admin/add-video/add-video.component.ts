@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 // Service
@@ -16,11 +16,19 @@ export class AddVideoComponent implements OnInit {
 
   public precio: number = 0;
   videoText: any;
+  public nombre: string = '';
 
   formTemplate = new FormGroup({
-    video: new FormControl(''),
-    nombre: new FormControl(''),
+    video: new FormControl(null, Validators.required),
+    nombre: new FormControl('')
   });
+
+  public mensajeArchivo = 'No hay un archivo seleccionado';
+  public datosFormulario = new FormData();
+  public nombreArchivo = '';
+  public URLPublica = '';
+  public porcentaje = 0;
+  public finalizado = false;
 
   constructor(
     public router: Router,
@@ -34,56 +42,62 @@ export class AddVideoComponent implements OnInit {
     this.router.navigate([`admin/videoAdmin`]);
   }
 
-  onAddGalery(formValue) {
-    debugger
-    this.serviceVideo.register(formValue).then((rp) => {
-      if (rp) {
-        this.serviceVideo.getByInsert(rp['id']).then((respuesta) => {
-          if (respuesta) {
-            // Imagen 1
-            if (this.videoText != undefined) {
-              this.serviceVideo.updateVideo(
-                respuesta['idDocument'],
-                respuesta['id'],
-                this.videoText
-              ).then((a => {
-console.log(a)
-              }));
-              this.router.navigate([`admin/videoAdmin`]);
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: '¡Insertado Correctamente!',
-                showConfirmButton: false,
-                timer: 2500,
-              });
-            } else {
-              Swal.fire('No has seleccionado ningun video')
-            }
-            // Fin imagen 1
-          }
-        })
+  public cambioArchivo(event) {
+    if (event.target.files.length > 0) {
+      for (let i = 0; i < event.target.files.length; i++) {
+        this.mensajeArchivo = `Archivo preparado: ${event.target.files[i].name}`;
+        this.nombreArchivo = event.target.files[i].name;
+        this.datosFormulario.delete('archivo');
+        this.datosFormulario.append('archivo', event.target.files[i], event.target.files[i].name)
       }
-    })
+    } else {
+      this.mensajeArchivo = 'No hay un archivo seleccionado';
+    }
   }
 
+  //Sube el archivo a Cloud Storage
+  public subirArchivo() {
+    let archivo = this.datosFormulario.get('archivo');
+    let referencia = this.serviceVideo.referenciaCloudStorage(this.nombreArchivo);
+    let tarea = this.serviceVideo.tareaCloudStorage(this.nombreArchivo, archivo);
 
+    //Cambia el porcentaje
+    tarea.percentageChanges().subscribe((porcentaje) => {
+      this.porcentaje = Math.round(porcentaje);
+      if (this.porcentaje == 100) {
+        this.finalizado = true;
 
-  VideoTexto(fileInput) {
-    debugger
-    let file = (<HTMLInputElement>fileInput.target).files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      if (
-        file.type == 'video/mp4' ||
-        file.type == 'video/mov' ||
-        file.type == 'video/webm' ||
-        file.type == 'video/avi' ||
-        file.type == 'video/flv'
-      ) {
-        this.videoText = reader.result;
+        referencia.getDownloadURL().subscribe((URL) => {
+          this.URLPublica = URL;
+        });
       }
-    };
+    });
+
+
+  }
+
+  aceptar() {
+    if (this.porcentaje == 100) {
+      console.log(this.URLPublica)
+      this.serviceVideo.register(this.formTemplate.value.nombre, this.URLPublica)
+      this.router.navigate([`admin/videoAdmin`]);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '¡Insertado Correctamente!',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+
+    } else {
+      console.log(this.URLPublica)
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'El video aun no carga!',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+    }
   }
 }

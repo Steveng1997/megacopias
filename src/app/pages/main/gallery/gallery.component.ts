@@ -73,7 +73,8 @@ export class GalleryComponent implements OnInit {
           localStorage.setItem("informaciondetodo", JSON.stringify([]))
         }
         var informacionTodoa = JSON.parse(localStorage.getItem('informaciondetodo'))
-        informacionTodoa.push({ id: e.id, nombre: e.nombre, precio: e.precio, cantidad: e.cantidad = 0, total: e.total = 0 })
+        var date = new Date().toLocaleDateString();
+        informacionTodoa.push({ id: e.id, nombre: e.nombre, precio: e.precio, cantidad: e.cantidad = 0, total: e.total = 0, date: e.date = date })
 
         localStorage.setItem("informaciondetodo", JSON.stringify(informacionTodoa))
 

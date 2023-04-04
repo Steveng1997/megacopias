@@ -25,42 +25,59 @@
                             <label class="text-danger">AGREGAR</label>
                         </div>
 
-                        <form [formGroup]="formTemplate" (ngSubmit)="onAddGalery(formTemplate.value)">
+                        <div class="contenedor">
+                            <div class="contenedor_formulario">
+                                <form [formGroup]="formTemplate" (ngSubmit)="subirArchivo()">
+                                    <div class="adjstInput">
+                                        <label class="file-label">
+                                            <input class="file-input inputSelect" type="file" formControlName="video"
+                                                (change)="cambioArchivo($event)">
+                                            <span class="file-name">
+                                                {{ mensajeArchivo }}
+                                            </span>
+                                        </label>
+                                    </div>
 
-                            <div class="contenedors">
+                                    <hr>
 
-                                <div class="form-floating mb-3 col-6">
-                                    <input c lass="form-control" type="file" accept="vide/*"
-                                        formControlName="video" (change)="VideoTexto($event)" />
-                                </div>
-
-                                <div class="form-floating mb-3 col-8">
-                                    <input class="form-control" formControlName="nombre" type="text" name="nombre" />
-                                    <label class="text-center">Nombre</label>
-                                </div>
-                            </div>
-
-
-                            <div class="col-12">
-                                <div class="row">
                                     <div class="ajustButton">
-                                        <div class="col-md-6 d-grid justify-content-center">
-                                            <button type="submit"
-                                                class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
-                                                Aceptar
-                                            </button>
-                                        </div>
+                                        <progress *ngIf="porcentaje > 0 && porcentaje < 100"
+                                            class="progress is-large is-success" value="{{porcentaje}}"
+                                            max="100">{{porcentaje}}%</progress>
+                                        <button
+                                            [ngClass]="{'button': true, 'is-success': true, 'is-large': true, 'is-loading': porcentaje > 0 && porcentaje < 100}"
+                                            [disabled]="!formTemplate.valid && (porcentaje > 0 && porcentaje < 100)"
+                                            class="btnSubir btn btn-primary">Cargar Video</button>
+                                    </div>
 
-                                        <div class="col-md-6 d-grid justify-content-center">
-                                            <button (click)="devolver()"
-                                                class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12">
-                                                Devolver
-                                            </button>
+
+                                    <div class="form-floating mb-3 col-8">
+                                        <input class="form-control" formControlName="nombre" type="text" name="nombre" />
+                                        <label class="text-center">Nombre</label>
+                                    </div>
+
+                                    <div class="col-12" *ngIf="porcentaje == 100">
+                                        <div class="row">
+                                            <div class="ajustButton">
+                                                <div class="col-md-6 d-grid justify-content-center">
+                                                    <button (click)="aceptar()"
+                                                        class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12">
+                                                        Aceptar
+                                                    </button>
+                                                </div>
+
+                                                <div class="col-md-6 d-grid justify-content-center">
+                                                    <button (click)="devolver()"
+                                                        class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12">
+                                                        Devolver
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

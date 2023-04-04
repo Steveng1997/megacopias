@@ -28,7 +28,6 @@ export class AddgalleryComponent implements OnInit {
     nombre: new FormControl(''),
     descripcion: new FormControl(''),
     precio: new FormControl(''),
-
   });
 
   constructor(

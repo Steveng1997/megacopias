@@ -3,12 +3,17 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import 'firebase/compat/app';
 
+
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+
 @Injectable()
 export class VideoService {
 
   constructor(
     public router: Router,
     private db: AngularFirestore,
+    private angularDb: AngularFireStorage
   ) { }
 
   // -----------------------------------------------------------------------------------
@@ -26,16 +31,16 @@ export class VideoService {
     return result;
   }
 
-  register(formVideo) {
-    formVideo = {
+  register(nombre: string, url: string) {
+    let videoRegistro = {
       id: `uid${this.makeid(10)}`,
-      video: formVideo.video,
-      nombre: formVideo.nombre,
+      nombre: nombre,
+      url: url
     };
     return new Promise<any>((resolve, reject) => {
       this.db
         .collection('videos')
-        .add(formVideo)
+        .add(videoRegistro)
         .then(
           (response) => resolve(response),
           (error) => reject(error)
@@ -43,20 +48,12 @@ export class VideoService {
     });
   }
 
-  getByInsert(id): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.db
-        .collection('videos')
-        .doc(id)
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
+  tareaCloudStorage(nombreArchivo: string, datos: any) {
+    return this.angularDb.upload(nombreArchivo, datos);
+  }
+
+  referenciaCloudStorage(nombreArchivo: string) {
+    return this.angularDb.ref(nombreArchivo)
   }
 
   // -----------------------------------------------------------------------------------
@@ -69,7 +66,7 @@ export class VideoService {
 
   getVideo() {
     return this.db
-      .collection('videos', (ref) =>  ref.orderBy('id', 'asc'))
+      .collection('videos', (ref) => ref.orderBy('id', 'asc'))
       .valueChanges();
   }
 
@@ -81,12 +78,7 @@ export class VideoService {
   // Update
   // -----------------------------------------------------------------------------------
 
-  updateVideo(idDocumentReto, idReto, videoText: string) {
-    return this.db
-      .collection('videos', (ref) => ref.where('id', '==', idReto))
-      .doc(idDocumentReto)
-      .update({ video: videoText });
-  }
+
 
   // -----------------------------------------------------------------------------------
   // End Update

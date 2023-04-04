@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-contactanos',
@@ -7,34 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactanosComponent implements OnInit {
 
-  selectNumber: any = 1;
+  formTemplate = new FormGroup({
+    name: new FormControl(''),
+    email: new FormControl(''),
+    phone: new FormControl(''),
+    subject: new FormControl(''),
+    message: new FormControl(''),
+  });
 
-  number12: number = 12000;
-
-  respuesta: number;
-  texto: any;
-
-  objeto: any;
   constructor(
   ) { }
 
   ngOnInit(): void {
-    this.respuesta = this.number12 * this.selectNumber;
   }
 
-
-  cambio(e) {
-    this.selectNumber = e.target.value;
-
-    // this.texto = document.getElementById("number4").innerText;
-
-    // console.log(this.texto)
-    console.log("number number" + this.selectNumber)
-
-
-
-    this.respuesta = this.number12 * this.selectNumber;
-
-    console.log("respuestaa", this.respuesta)
+  enviar() {
+    const URL = `https://api.whatsapp.com/send?phone=+573043277453&text=Hola.%0A%0AMi nombre es: %20${this.formTemplate.value.name},%20 este es mi numero celular:%20${this.formTemplate.value.phone}%20 y mi correo electronico: %20${this.formTemplate.value.email}&source=&data=`;
+    window.open(URL, "_blank");
   }
 }

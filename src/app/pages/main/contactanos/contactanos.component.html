@@ -10,12 +10,11 @@
                         <div class="col-12 col-md-6 col-xl-12">
                             <div class="contact-item">
                                 <div class="contact-icon">
-                                    <i class="lni lni-phone"></i>
+                                    <i class="lab la-whatsapp"></i>
                                 </div>
                                 <div class="contact-content">
-                                    <h4>Contact</h4>
-                                    <p>0984537278623</p>
-                                    <p>yourmail@gmail.com</p>
+                                    <h4>Whatssap</h4>
+                                    <p>316 481 4881</p>
                                 </div>
                             </div>
                         </div>
@@ -64,32 +63,36 @@
                             </div>
                         </div>
                     </div>
-                    <form  class="contact-form">
+                    <form [formGroup]="formTemplate" class="contact-form">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" name="name" id="name" placeholder="Name" required="">
+                                <input type="text" formControlName="name" name="name" placeholder="Nombre" required="">
                             </div>
                             <div class="col-md-6">
-                                <input type="email" name="email" id="email" placeholder="Email" required="">
+                                <input type="email" name="email" formControlName="email" placeholder="Email"
+                                    required="">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" name="phone" id="phone" placeholder="Phone" required="">
+                                <input type="text" name="phone" formControlName="phone" placeholder="Celular"
+                                    required="">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" name="subject" id="email" placeholder="Subject" required="">
+                                <input type="text" name="subject" formControlName="subject" placeholder="Asunto"
+                                    required="">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <textarea name="message" id="message" placeholder="Type Message" rows="5"></textarea>
+                                <textarea name="message" formControlName="message" placeholder="Mensaje"
+                                    rows="5"></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="button text-center">
-                                    <button type="submit" class="theme-btn">Send Message</button>
+                                    <button (click)="enviar()" type="submit" class="theme-btn">Send Message</button>
                                 </div>
                             </div>
                         </div>

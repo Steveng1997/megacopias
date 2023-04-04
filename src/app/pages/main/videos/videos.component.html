@@ -18,9 +18,11 @@
         <div class="rounded shadow-lg overflow-hidden transform-perspective-right">
           <div id="carousel_example" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" id="carousel_example">
-              <div class="carousel-item" [ngClass]="{'active':index===0}"
-                *ngFor="let gallery of galeria; let index=index">
-                <img class="img-fluid" src="{{gallery.imagen}}">
+              <div class="carousel-item" [ngClass]="{'active':index===0}" *ngFor="let vide of video; let index=index">
+                <video class="img-fluid" controls width="400" height="400" autoplay>
+                  <source src="{{vide.url}}" type="video/mp4">
+                </video>
+                <!-- <video src="{{vide.url}}"></video> -->
               </div>
             </div>
             <a class="carousel-control-prev" href="#carousel_example" role="button" data-slide="prev">
