@@ -2956,8 +2956,3 @@ p {
         margin-right: 10px
     }
 }
-
-.footer-social-links ul li a:hover {
-    background: linear-gradient(#3763eb 0%,#6f58e8 100%);
-    color: #fff
-}
